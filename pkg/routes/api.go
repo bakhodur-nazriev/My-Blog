@@ -1,7 +1,7 @@
 package routes
 
 import (
-	controllers "github.com/bakhodur-nazriev/my-blog/pkg/contorllers"
+	"github.com/bakhodur-nazriev/my-blog/pkg/controllers"
 	"github.com/gorilla/mux"
 )
 
@@ -21,9 +21,9 @@ var RegisterMyBlogRoutes = func(router *mux.Router) {
 	router.HandleFunc("/users/{id}", controllers.DeleteUser).Methods("DELETE")*/
 
 	/* Articles */
-	/*router.HandleFunc("/articles/", controllers.GetAllArticles).Methods("GET")
+	router.HandleFunc("/articles/", controllers.GetAllArticles).Methods("GET")
 	router.HandleFunc("/articles/{id}", controllers.GetArticleById).Methods("GET")
 	router.HandleFunc("/articles/", controllers.CreateArticle).Methods("POST")
 	router.HandleFunc("/articles/{id}", controllers.UpdateArticle).Methods("PUT")
-	router.HandleFunc("/articles/{id}", controllers.DelelteArticle).Methods("DELETE")*/
+	router.HandleFunc("/articles/{id}", controllers.DeleteArticle).Methods("DELETE")
 }
