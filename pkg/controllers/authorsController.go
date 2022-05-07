@@ -15,7 +15,7 @@ var NewAuthor models.Author
 func GetAllAuthors(w http.ResponseWriter, r *http.Request) {
 	newAuthor := models.GetAllAuthors()
 	res, _ := json.Marshal(newAuthor)
-	w.Header().Set("Content-Type", "pkglication/json")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -29,7 +29,7 @@ func GetAuthorById(w http.ResponseWriter, r *http.Request) {
 	}
 	authorDetails, _ := models.GetAuthorById(ID)
 	res, _ := json.Marshal(authorDetails)
-	w.Header().Set("Content-Type", "pkglication/json")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -39,7 +39,7 @@ func CreateAuthor(w http.ResponseWriter, r *http.Request) {
 	utils.ParseBody(r, CreateAuthor)
 	a := CreateAuthor.CreateAuthor()
 	res, _ := json.Marshal(a)
-	w.Header().Set("Content-Type", "pkglication/json")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -66,7 +66,7 @@ func UpdateAuthor(w http.ResponseWriter, r *http.Request) {
 
 	db.Save(&authorDetails)
 	res, _ := json.Marshal(authorDetails)
-	w.Header().Set("Content-Type", "pkglication/json")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -80,7 +80,7 @@ func DeleteAuthor(w http.ResponseWriter, r *http.Request) {
 	}
 	author := models.DeleteAuthor(ID)
 	res, _ := json.Marshal(author)
-	w.Header().Set("Content-Type", "pkglication/json")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }

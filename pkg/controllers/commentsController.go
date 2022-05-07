@@ -15,7 +15,7 @@ var NewComment models.Comment
 func GetAllComments(w http.ResponseWriter, r *http.Request) {
 	newComment := models.GetAllComments()
 	res, _ := json.Marshal(newComment)
-	w.Header().Set("Content-Type", "pkglication/json")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -29,7 +29,7 @@ func GetCommentById(w http.ResponseWriter, r *http.Request) {
 	}
 	commentDetails, _ := models.GetCommentById(ID)
 	res, _ := json.Marshal(commentDetails)
-	w.Header().Set("Content-Type", "pkglication/json")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -39,7 +39,7 @@ func CreateComment(w http.ResponseWriter, r *http.Request) {
 	utils.ParseBody(r, CreateComment)
 	c := CreateComment.CreateComment()
 	res, _ := json.Marshal(c)
-	w.Header().Set("Content-Type", "pkglication/json")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -57,7 +57,7 @@ func DeleteComment(w http.ResponseWriter, r *http.Request) {
 	}
 	comment := models.DeleteComment(ID)
 	res, _ := json.Marshal(comment)
-	w.Header().Set("Content-Type", "pkglication/json")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }

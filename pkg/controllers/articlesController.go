@@ -15,7 +15,7 @@ var NewArticle models.Articles
 func GetAllArticles(w http.ResponseWriter, r *http.Request) {
 	newArticle := models.GetAllArticles()
 	res, _ := json.Marshal(newArticle)
-	w.Header().Set("Content-Type", "pkglication/json")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -29,7 +29,7 @@ func GetArticleById(w http.ResponseWriter, r *http.Request) {
 	}
 	articleDetails, _ := models.GetArticleById(ID)
 	res, _ := json.Marshal(articleDetails)
-	w.Header().Set("Content-Type", "pkglication/json")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -39,7 +39,7 @@ func CreateArticle(w http.ResponseWriter, r *http.Request) {
 	utils.ParseBody(r, CreateArticle)
 	a := CreateArticle.CreateArticle()
 	res, _ := json.Marshal(a)
-	w.Header().Set("Content-Type", "pkglication/json")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -64,7 +64,7 @@ func UpdateArticle(w http.ResponseWriter, r *http.Request) {
 
 	db.Save(&articleDetails)
 	res, _ := json.Marshal(articleDetails)
-	w.Header().Set("Content-Type", "pkglication/json")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -74,11 +74,11 @@ func DeleteArticle(w http.ResponseWriter, r *http.Request) {
 	articleId := vars["articleId"]
 	ID, err := strconv.ParseInt(articleId, 0, 0)
 	if err != nil {
-		fmt.Println("error while parsong")
+		fmt.Println("error while parsing")
 	}
 	article := models.DeleteArticle(ID)
 	res, _ := json.Marshal(article)
-	w.Header().Set("Content-Type", "pkglication/json")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
