@@ -45,7 +45,17 @@ func CreateComment(w http.ResponseWriter, r *http.Request) {
 }
 
 func UpdateComment(w http.ResponseWriter, r *http.Request) {
+	var updateComment = &models.Comment{}
+	utils.ParseBody(r, updateComment)
+	vars := mux.Vars(r)
+	commentId := vars["commentId"]
+	ID, err := strconv.ParseInt(commentId,0,0)
+	if err != nil {
+		fmt.Println("error while parsing")
+	}
 
+	commentDetails,db := models.GetCommentById(ID)
+	if updateComment.
 }
 
 func DeleteComment(w http.ResponseWriter, r *http.Request) {

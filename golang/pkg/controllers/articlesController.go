@@ -82,3 +82,7 @@ func DeleteArticle(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
+
+func hello() {
+	fmt.Println("Hello wo")
+}

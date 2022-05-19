@@ -7,8 +7,11 @@ import (
 
 type Articles struct {
 	gorm.Model
-	Title string `json:"title"`
-	Body  string `json:"body"`
+	Title     string `json:"title"`
+	UserId    int    `json:"gorm"`
+	Slug      string `json:"slug"`
+	ImagePath string `json:"imagePath"`
+	Body      string `json:"body"`
 }
 
 func init() {
