@@ -1,8 +1,9 @@
 <template>
   <nav class="main-navbar">
-    <div>
-      <img height="70" src="../assets/logo_blog.png" alt="logo">
+    <div class="main-logo">
+      <img alt="logo" :src="mainBlackLogo">
     </div>
+
     <div>
       <router-link class="test" to="/">Home</router-link>
       <router-link to="/about">About</router-link>
@@ -13,23 +14,45 @@
 
     <div>
       <input type="text" class="form-control" placeholder="Search...">
+      <a href="" class="shopping-card">a</a>
     </div>
   </nav>
 </template>
 
 <script>
+import blackLogo from '../assets/black_logo.png';
+
 export default {
   data() {
-    return {}
+    return {
+      mainBlackLogo: blackLogo
+    }
   }
 }
 </script>
 
 <style>
+.shopping-card {
+  border-radius: 50%;
+  background-color: #f0f2f5;
+  padding: 10px;
+}
+
+.form-control {
+  border: none;
+  background-color: #f0f2f5;
+  min-width: 143px;
+  height: 35px;
+  border-radius: 44px;
+
+}
+
 nav {
   display: flex;
-  justify-content: space-around;
-  padding: 30px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 23px 63px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
 }
 
 nav a {
@@ -41,5 +64,14 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #3858f6;
+}
+
+.main-logo {
+  display: flex;
+  align-items: center;
+}
+
+.main-logo > img {
+  max-height: 37px;
 }
 </style>
